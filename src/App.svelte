@@ -19,7 +19,7 @@
 <GithubLogin
   clientId="eedd045dfbd82de208fc"
   scope="user:email"
-  redirectUri="http://localhost:3003/"
+  redirectUri="http://localhost:3003/callback"
   on:success={
     params => {
         console.log(params.detail);
