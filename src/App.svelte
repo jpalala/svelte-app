@@ -1,43 +1,26 @@
 <script>
   import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
   import GithubLogin from "svelte-github-login";
   let authorized = false;
+  const cookie = document.cookie;
+  //just a simple test for cookie
+  if( cookie.includes("auth-token")) {
+
+    authorized == true;
+    // TODO: run a query using the auth-token to retreieve data. 
+    // for now, lets just show that cookie exists...
+    alert(document.cookie);
+  }
 </script>
 
 <main>
   <img src={logo} alt="Svelte Logo" />
-  <h1>Hello world!</h1>
-
-  <Counter />
+  <h1>Lets Login!</h1>
 
   <p>
-    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
-    apps.
-  </p>
-  <p>
-<GithubLogin
-  clientId="eedd045dfbd82de208fc"
-  scope="user:email"
-  redirectUri="http://localhost:3003/callback"
-  on:success={
-    params => {
-        console.log(params.detail);
-         authorized = true;
-    }
-  }
-  on:error={error => 
-    console.log(error)}
-  let:onLogin
->
-  <button on:click={onLogin}>Github Login</button>
-</GithubLogin>
   Authorized: {authorized}
   </p>
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
-    the officially supported framework, also powered by Vite!
-  </p>
+
 </main>
 
 <style>
