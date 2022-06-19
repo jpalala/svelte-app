@@ -10,6 +10,8 @@
     // TODO: run a query using the auth-token to retreieve data. 
     // for now, lets just show that cookie exists...
     alert(document.cookie);
+  } else {
+    alert('Cookie failed to load');
   }
 </script>
 
