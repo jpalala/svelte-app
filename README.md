@@ -8,6 +8,12 @@ This template should help get you started developing with Svelte in Vite.
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
 
+## Deploying .env variables
+
+With vite, following [this guide](https://vitejs.dev/guide/env-and-mode.html#env-files) you can get import the env variable by prefixing with VITE_
+
+Do not use this to load app secrets! It's mainly for being able to setup endpoints (like BACKEND APP URL's) for your app.
+
 ## Need an official Svelte framework?
 
 Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
@@ -48,3 +54,5 @@ If you have state that's important to retain within a component, consider creati
 import { writable } from 'svelte/store'
 export default writable(0)
 ```
+
+

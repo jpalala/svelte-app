@@ -1,17 +1,26 @@
 <script>
   import logo from './assets/svelte.png'
-  import GithubLogin from "svelte-github-login";
   let authorized = false;
+  console.log(import.meta.env.VITE_SOME_KEY);
+  import axios from 'axios';
+  const baseUrl = 'http://localhost:3003';
   const cookie = document.cookie;
-  //just a simple test for cookie
-  if( cookie.includes("auth-token")) {
+  axios.defaults.withCredentials = true
 
-    authorized == true;
-    // TODO: run a query using the auth-token to retreieve data. 
-    // for now, lets just show that cookie exists...
-    alert(document.cookie);
+  //generates the sanctum token
+//   axios.get(baseUrl + '/sanctum/csrf-cookie',).then(() => {
+     //make a request to get /github_id
+
+
+  if(cookie.includes("XSRF-TOKEN")) {
+    axios.post(baseUrl + '/api/github_id', {
+          email: "joe@mentorsdojo.com",
+        }).then((res) => {
+            console.log(res);
+            authorized = true;
+        });
   } else {
-    alert('Cookie failed to load');
+    console.error('No XSRF Token!');
   }
 </script>
 
